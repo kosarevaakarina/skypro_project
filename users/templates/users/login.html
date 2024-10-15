@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+    <div class="col-6">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Войти</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    change_style("id_username")
+    change_style("id_password")
+
+    function change_style(id_element) {
+        const element = document.getElementById(id_element);
+        element.setAttribute("class", "form-control form-control-solid");
+        element.setAttribute("style", "width: 400px");
+    }
+</script>
+{% endblock %}
