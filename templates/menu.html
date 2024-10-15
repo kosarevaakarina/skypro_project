@@ -1,0 +1,16 @@
+
+<div class="card">
+    <div class="row" style="margin-left: 20px">
+        {% if user.is_authenticated %}
+        <form action="{% url 'users:logout' %}" method="post" class="btn" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" style="background:none;border:none;color:black;cursor:pointer;">Выйти</button>
+        </form>
+        <a href="{% url 'users:profile' %}" class="btn" style="color: black">Профиль</a>
+        <a href="{% url 'catalog:product_list' %}" class="btn" style="color: black">Каталог</a>
+        {% else %}
+        <a href="{% url 'users:login' %}" class="btn" style="color: black">Войти</a>
+        <a href="{% url 'users:register' %}" class="btn" style="color: black">Зарегистрироваться</a>
+        {% endif %}
+    </div>
+</div>

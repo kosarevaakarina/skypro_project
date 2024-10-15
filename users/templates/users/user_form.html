@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container d-flex justify-content-center">
+    <div class="col-6">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                {% if not user.is_authenticated %}
+                <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+                {% else %}
+                <button type="submit" class="btn btn-success">Сохранить</button>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    change_style("id_email");
+    change_style("id_phone");
+    {% if not user.is_authenticated %}
+    change_style("id_password1");
+    change_style("id_password2");
+    {% else %}
+    change_style("id_first_name");
+    change_style("id_last_name");
+
+    {% endif %}
+    function change_style(id_element) {
+        const element = document.getElementById(id_element);
+        element.setAttribute("class", "form-control form-control-solid");
+        element.setAttribute("style", "width: 600px");
+    }
+</script>
+{% endblock %}

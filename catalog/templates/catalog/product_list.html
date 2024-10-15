@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="table-responsive">
+    <table class="table table-hover table-row-bordered align-middle border-gray-100" aria-describedby="appeals">
+        <thead>
+        <tr class="text-start text-muted fw-bolder text-gray-400 fs-7 border-gray-100 border-bottom-1">
+            <th style="width:5%;" scope="col" class="text-left">№</th>
+            <th style="width:8%" scope="col" class="text-left">Название товара</th>
+            <th style="width:10%" scope="col" class="text-left">Категория</th>
+            <th style="width:5%" scope="col" class="text-left">Стоимость</th>
+            <th style="width:5%" scope="col" class="text-left">Количество заказов за прошлый месяц от текущего</th>
+            <th style="width:5%" scope="col" class="text-left">Количество заказов за текущий месяц (с 1 дня месяца)</th>
+            <th style="width:5%" scope="col" class="text-center">Наличие товара</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if user.is_authenticated %}
+            {% for product in product_list %}
+            <tr>
+                <td class="text-left">{{ forloop.counter }}</td>
+                <td class="text-left">{{ product.title }}</td>
+                <td class="text-left">{{ product.category.title }}</td>
+                <td class="text-left">{{product.price}}</td>
+                <td class="text-left">{{product.get_count_order_last_month}}</td>
+                <td class="text-left">{{product.get_count_order_current_month}}</td>
+                <td class="text-center">
+                    {% if product.is_active %}
+                    <svg style="color: green" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                    </svg>
+                    {% else %}
+                    <svg style="color: red" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-dash" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M5.5 10a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                    </svg>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="7" class="text-center">Чтобы получить информацию необходимо авторизоваться</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

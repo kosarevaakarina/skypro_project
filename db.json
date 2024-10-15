@@ -1,0 +1,147 @@
+[
+  {"model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$SGtGmrjbB1V3paGiLKbOxG$8QpmL43QrDZpH3trwHsMdY0KQsFDLBWQAKQCETGFB9A=",
+      "last_login": null,
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-10-15T10:38:52.849Z",
+      "email": "admin@mail.ru",
+      "name": null,
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {"model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$3lzOEXJyzNTMhYNHJ0QkOg$OGUuF5BmoLAPX7CeH8AcW/FimBlCXLakwcMCs6qpUsQ=",
+      "last_login": "2024-10-15T10:43:03.383Z",
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-10-15T10:39:34.423Z",
+      "email": "admin@yandex.ru",
+      "name": null,
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {"model": "catalog.category",
+    "pk": 1,
+    "fields": {"title": "Категория - 1"}},
+  {"model": "catalog.category",
+    "pk": 2,
+    "fields": {"title": "Категория - 2"}},
+  {"model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "title": "Товар - 1",
+      "category": 1,
+      "is_active": true,
+      "price": 500,
+      "create_at": "2024-10-15T10:43:40.600Z",
+      "update_at": "2024-10-15T10:43:40.600Z"
+    }
+  },
+  {"model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "title": "Товар -2",
+      "category": 2,
+      "is_active": false,
+      "price": 400,
+      "create_at": "2024-10-15T10:43:52.006Z",
+      "update_at": "2024-10-15T10:43:52.006Z"
+    }
+  },
+  {"model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "title": "Товар - 3",
+      "category": 1,
+      "is_active": false,
+      "price": 1000,
+      "create_at": "2024-10-15T10:44:02.030Z",
+      "update_at": "2024-10-15T10:44:02.030Z"
+    }
+  },
+  {"model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "title": "Товар - 4",
+      "category": 1,
+      "is_active": true,
+      "price": 1000,
+      "create_at": "2024-10-15T10:44:09.161Z",
+      "update_at": "2024-10-15T10:44:09.161Z"
+    }
+  },
+  {"model": "catalog.productorder",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "product": 1,
+      "create_at": "2024-09-04T10:44:20Z"
+    }
+  },
+  {"model": "catalog.productorder",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "product": 1,
+      "create_at": "2024-08-14T10:44:33Z"
+    }
+  },
+  {"model": "catalog.productorder",
+    "pk": 3,
+    "fields": {
+      "user": 2,
+      "product": 1,
+      "create_at": "2024-09-12T10:44:42Z"
+    }
+  },
+  {"model": "catalog.productorder",
+    "pk": 4,
+    "fields": {
+      "user": 2,
+      "product": 1,
+      "create_at": "2024-10-15T10:44:51Z"
+    }
+  },
+  {"model": "catalog.productorder",
+    "pk": 5,
+    "fields": {
+      "user": 2,
+      "product": 1,
+      "create_at": "2024-10-14T10:44:58Z"
+    }
+  },
+  {"model": "catalog.productorder",
+    "pk": 6,
+    "fields": {
+      "user": 2,
+      "product": 2,
+      "create_at": "2024-10-15T10:45:09Z"
+    }
+  },
+  {"model": "catalog.productorder",
+    "pk": 7,
+    "fields": {
+      "user": 2,
+      "product": 2,
+      "create_at": "2024-10-14T10:45:16Z"}
+  }
+]
